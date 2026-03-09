@@ -29,7 +29,7 @@ export function CTASection({
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-violet-600/20 via-[#0a0a14] to-cyan-600/20 border border-white/8 p-10 md:p-16 text-center"
+                className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-violet-600/20 via-[#0a0a14] to-cyan-600/20 border border-white/8 card-pad-lg text-center"
             >
                 {/* Orbs */}
                 <div className="absolute top-0 left-1/4 w-72 h-72 rounded-full bg-violet-600/15 blur-3xl pointer-events-none" />
@@ -77,7 +77,7 @@ export function CTASection({
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="mt-10 flex flex-wrap items-center justify-center gap-4"
+                        className="mt-12 flex flex-wrap items-center justify-center gap-6"
                     >
                         <Link href={primaryCta.href}>
                             <Button size="lg" className="gap-2">

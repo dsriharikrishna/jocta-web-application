@@ -42,7 +42,7 @@ export function ClientsSection() {
                     hidden: {},
                     visible: { transition: { staggerChildren: 0.08 } },
                 }}
-                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16"
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20"
             >
                 {clientLogos.map((name) => (
                     <motion.div
@@ -52,7 +52,7 @@ export function ClientsSection() {
                             visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
                         }}
                         whileHover={{ scale: 1.04, borderColor: 'rgba(124,109,250,0.3)' }}
-                        className="flex items-center justify-center rounded-2xl border border-white/7 bg-white/3 px-4 py-6 text-center text-xs font-semibold text-white/40 cursor-default transition-all duration-300 hover:text-white/70 hover:bg-white/6"
+                        className="flex items-center justify-center rounded-2xl border border-white/7 bg-white/3 card-pad-sm text-center text-sm font-semibold text-white/40 cursor-default transition-all duration-300 hover:text-white/70 hover:bg-white/6"
                     >
                         {name}
                     </motion.div>
@@ -61,11 +61,9 @@ export function ClientsSection() {
 
             {/* Testimonial */}
             <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="relative rounded-3xl border border-white/8 bg-gradient-to-br from-white/4 to-white/2 overflow-hidden p-8 md:p-14"
+                className="relative rounded-3xl border border-white/8 bg-gradient-to-br from-white/4 to-white/2 overflow-hidden card-pad-lg"
             >
                 {/* Glow */}
                 <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-violet-600/10 blur-3xl pointer-events-none" />
@@ -75,12 +73,12 @@ export function ClientsSection() {
                         <Quote className="w-6 h-6 text-violet-400" />
                     </div>
 
-                    <blockquote className="text-lg md:text-2xl font-medium text-white/80 leading-relaxed mb-8 italic">
+                    <blockquote className="text-xl md:text-3xl font-medium text-white/80 leading-relaxed mb-10 italic">
                         &ldquo;{testimonial.quote}&rdquo;
                     </blockquote>
 
-                    <div className="flex items-center justify-center gap-4">
-                        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-cyan-500 text-sm font-bold text-white">
+                    <div className="flex items-center justify-center gap-5">
+                        <div className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-violet-500 to-cyan-500 text-sm font-bold text-white shadow-xl">
                             MM
                         </div>
                         <div className="text-left">

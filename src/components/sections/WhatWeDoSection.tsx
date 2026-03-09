@@ -41,7 +41,7 @@ function PillarCard({ pillar, index }: { pillar: HeroPillar; index: number }) {
             variants={staggerItem}
             whileHover={{ y: -6 }}
             transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-white/7 bg-white/3 p-7 overflow-hidden hover:border-white/14 transition-all duration-300"
+            className="group relative rounded-2xl border border-white/7 bg-white/3 card-pad overflow-hidden hover:border-white/14 transition-all duration-300"
             style={{ '--glow': glow } as React.CSSProperties}
         >
             {/* Hover glow */}
@@ -57,25 +57,25 @@ function PillarCard({ pillar, index }: { pillar: HeroPillar; index: number }) {
 
             {/* Icon */}
             <div
-                className={`mb-5 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${accent} text-white shadow-lg`}
+                className={`mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${accent} text-white shadow-lg`}
             >
-                <Icon className="w-5 h-5" />
+                <Icon className="w-6 h-6" />
             </div>
 
-            <h3 className="font-display text-lg font-bold text-white mb-3">
+            <h3 className="font-display text-xl font-bold text-white mb-4">
                 {pillar.title}
             </h3>
 
-            <p className="text-sm text-white/45 leading-relaxed mb-5">
+            <p className="text-base text-white/45 leading-relaxed mb-6">
                 {pillar.description}
             </p>
 
             <Link
                 href="/platform"
-                className="inline-flex items-center gap-1 text-xs font-semibold text-violet-400 hover:text-violet-300 transition-colors group/link"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors group/link"
             >
                 Learn More
-                <ArrowRight className="w-3.5 h-3.5 -translate-x-0.5 group-hover/link:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 -translate-x-0.5 group-hover/link:translate-x-0.5 transition-transform" />
             </Link>
         </motion.div>
     );
@@ -102,7 +102,7 @@ export function WhatWeDoSection() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: '-80px' }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-cards"
             >
                 {pillars.map((pillar, index) => (
                     <PillarCard key={pillar.id} pillar={pillar} index={index} />

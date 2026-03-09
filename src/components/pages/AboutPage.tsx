@@ -30,7 +30,7 @@ function ValueCard({ value, index }: { value: ValueItem; index: number }) {
             variants={staggerItem}
             whileHover={{ y: -6 }}
             transition={{ duration: 0.3 }}
-            className={`group relative rounded-2xl border border-white/7 bg-white/3 p-7 overflow-hidden transition-all duration-300 ${colors.border}`}
+            className={`group relative rounded-2xl border border-white/7 bg-white/3 card-pad overflow-hidden transition-all duration-300 ${colors.border}`}
         >
             <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
@@ -38,12 +38,12 @@ function ValueCard({ value, index }: { value: ValueItem; index: number }) {
             />
             <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${colors.gradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
 
-            <div className={`mb-5 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${colors.gradient} text-white`}>
-                <Icon className="w-5 h-5" />
+            <div className={`mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${colors.gradient} text-white shadow-lg`}>
+                <Icon className="w-6 h-6" />
             </div>
 
-            <h3 className="font-display text-base font-bold text-white mb-3">{value.title}</h3>
-            <p className="text-sm text-white/45 leading-relaxed">{value.description}</p>
+            <h3 className="font-display text-xl font-bold text-white mb-4">{value.title}</h3>
+            <p className="text-base text-white/45 leading-relaxed">{value.description}</p>
         </motion.div>
     );
 }
@@ -131,7 +131,7 @@ export function AboutPage() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-80px' }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-cards"
                 >
                     {about.values.map((value, index) => (
                         <ValueCard key={value.id} value={value} index={index} />
@@ -152,7 +152,7 @@ export function AboutPage() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5"
+                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-cards"
                 >
                     {about.team.map((member, index) => (
                         <motion.div
@@ -177,7 +177,7 @@ export function AboutPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
-                    className="relative rounded-3xl border border-white/8 bg-gradient-to-br from-amber-500/8 to-orange-500/5 overflow-hidden p-10 md:p-16"
+                    className="relative rounded-3xl border border-white/8 bg-gradient-to-br from-amber-500/8 to-orange-500/5 overflow-hidden card-pad-lg"
                 >
                     <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-amber-500/8 blur-3xl" />
                     <div className="relative max-w-2xl">

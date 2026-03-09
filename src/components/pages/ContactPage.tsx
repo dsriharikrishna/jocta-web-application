@@ -57,7 +57,7 @@ export function ContactPage() {
 
             {/* Form + Info */}
             <Section className="section-py bg-[#030305]">
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-cards items-start">
                     {/* Contact Info */}
                     <div className="lg:col-span-2">
                         <motion.div
@@ -77,7 +77,7 @@ export function ContactPage() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.7 }}
-                            className="rounded-3xl border border-white/8 bg-white/3 p-8 md:p-10"
+                            className="rounded-3xl border border-white/8 bg-white/3 card-pad-lg"
                         >
                             <ContactForm
                                 fields={fullFormFields}
@@ -90,12 +90,12 @@ export function ContactPage() {
             </Section>
 
             {/* Map / Location visual */}
-            <Section className="pb-24 bg-[#030305]">
-                <div className="rounded-2xl border border-white/7 bg-white/3 overflow-hidden h-48 flex items-center justify-center">
+            <Section className="section-py bg-[#030305]">
+                <div className="rounded-3xl border border-white/7 bg-white/3 overflow-hidden h-64 flex items-center justify-center">
                     <div className="text-center">
-                        <div className="text-3xl mb-2">📍</div>
-                        <div className="text-sm font-semibold text-white/60">{siteData.company.location}</div>
-                        <div className="text-xs text-white/30 mt-1">Hyderabad, Telangana, India</div>
+                        <div className="text-4xl mb-4">📍</div>
+                        <div className="text-lg font-bold text-white/80">{siteData.company.location}</div>
+                        <div className="text-sm text-white/30 mt-2">Hyderabad, Telangana, India</div>
                     </div>
                 </div>
             </Section>

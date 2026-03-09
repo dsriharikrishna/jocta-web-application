@@ -92,7 +92,7 @@ export function PlatformPage() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-80px' }}
-                    className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-cards"
                 >
                     {platform.layers.map((layer, index) => {
                         const Icon = layerIcons[index];
@@ -102,7 +102,7 @@ export function PlatformPage() {
                                 key={layer.id}
                                 variants={staggerItem}
                                 whileHover={{ y: -4 }}
-                                className={`relative rounded-2xl border ${colors.border} bg-white/3 p-8 overflow-hidden group`}
+                                className={`relative rounded-2xl border ${colors.border} bg-white/3 card-pad overflow-hidden group`}
                             >
                                 <div
                                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -110,7 +110,7 @@ export function PlatformPage() {
                                 />
 
                                 <div
-                                    className={`inline-flex items-center justify-center w-13 h-13 rounded-xl bg-gradient-to-br ${colors.bg} mb-6 shadow-lg`}
+                                    className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${colors.bg} mb-6 shadow-lg`}
                                 >
                                     <Icon className="w-6 h-6 text-white" />
                                 </div>
@@ -148,7 +148,7 @@ export function PlatformPage() {
                     description="Here's how our solutions built using Jocata GRID can help you with digital transformation initiatives across several or all of your verticals"
                 />
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-cards">
                     {platform.verticals.map((v, index) => (
                         <motion.div
                             key={v.id}
@@ -156,7 +156,7 @@ export function PlatformPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.6 }}
-                            className="rounded-2xl border border-white/7 bg-white/3 p-8 hover:border-white/14 transition-all duration-300"
+                            className="rounded-2xl border border-white/7 bg-white/3 card-pad hover:border-white/14 transition-all duration-300"
                         >
                             <h3 className="font-display text-xl font-bold text-white mb-3">{v.title}</h3>
                             <div className="flex flex-wrap gap-2 mb-5">
@@ -177,7 +177,7 @@ export function PlatformPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
-                    className="relative rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/8 to-violet-500/8 overflow-hidden p-10 md:p-14"
+                    className="relative rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/8 to-violet-500/8 overflow-hidden card-pad-lg"
                 >
                     <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
 

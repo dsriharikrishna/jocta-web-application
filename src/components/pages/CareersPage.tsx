@@ -35,15 +35,15 @@ function PerkCard({ perk, index }: { perk: Perk; index: number }) {
             variants={staggerItem}
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
-            className="group rounded-2xl border border-white/7 bg-white/3 p-7 overflow-hidden hover:border-white/14 transition-all duration-300"
+            className="group rounded-2xl border border-white/7 bg-white/3 card-pad overflow-hidden hover:border-white/14 transition-all duration-300"
         >
             <div
-                className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} text-white mb-5 shadow-lg`}
+                className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${gradient} text-white mb-6 shadow-lg`}
             >
-                <Icon className="w-5 h-5" />
+                <Icon className="w-6 h-6" />
             </div>
-            <h3 className="font-display text-base font-bold text-white mb-3">{perk.title}</h3>
-            <p className="text-sm text-white/45 leading-relaxed">{perk.description}</p>
+            <h3 className="font-display text-xl font-bold text-white mb-4">{perk.title}</h3>
+            <p className="text-base text-white/45 leading-relaxed">{perk.description}</p>
         </motion.div>
     );
 }
@@ -60,7 +60,7 @@ function JobCard({ job }: { job: JobOpening }) {
         >
             <button
                 onClick={() => setExpanded(!expanded)}
-                className="w-full flex items-center justify-between gap-4 p-7 text-left hover:bg-white/3 transition-colors"
+                className="w-full flex items-center justify-between gap-4 card-pad text-left hover:bg-white/3 transition-colors"
             >
                 <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2 flex-wrap">
@@ -92,7 +92,7 @@ function JobCard({ job }: { job: JobOpening }) {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="border-t border-white/6 px-7 py-6"
+                    className="border-t border-white/6 card-pad-sm"
                 >
                     <h4 className="text-xs font-semibold text-white/40 uppercase tracking-widest mb-4">
                         Requirements
@@ -171,7 +171,7 @@ export function CareersPage() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-80px' }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-cards"
                 >
                     {careers.perks.slice(0, 8).map((perk, index) => (
                         <PerkCard key={perk.id} perk={perk} index={index} />

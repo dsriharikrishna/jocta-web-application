@@ -84,7 +84,7 @@ export function FeatureCard({
             transition={{ duration: 0.6, delay, ease: [0.25, 0.4, 0.25, 1] }}
             whileHover={{ y: -6 }}
             className={cn(
-                'group relative rounded-2xl border border-white/7 bg-white/3 p-7 overflow-hidden',
+                'group relative rounded-2xl border border-white/7 bg-white/3 card-pad overflow-hidden',
                 'transition-all duration-300 hover:border-violet-500/30 hover:bg-white/5',
                 'hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]',
                 className
@@ -108,15 +108,15 @@ export function FeatureCard({
 
             <div
                 className={cn(
-                    'mb-5 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br text-white',
+                    'mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br text-white shadow-lg',
                     accent
                 )}
             >
                 {icon}
             </div>
 
-            <h3 className="font-display text-lg font-semibold text-white mb-3">{title}</h3>
-            <p className="text-sm text-white/50 leading-relaxed">{description}</p>
+            <h3 className="font-display text-xl font-bold text-white mb-4">{title}</h3>
+            <p className="text-base text-white/50 leading-relaxed">{description}</p>
         </motion.div>
     );
 }
@@ -136,7 +136,7 @@ export function StatCard({ value, label, className, delay = 0 }: StatCardProps) 
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay }}
             className={cn(
-                'rounded-2xl border border-white/7 bg-white/3 p-7 text-center',
+                'rounded-2xl border border-white/7 bg-white/3 card-pad text-center',
                 className
             )}
         >

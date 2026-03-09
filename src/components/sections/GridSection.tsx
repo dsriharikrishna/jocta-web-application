@@ -53,8 +53,8 @@ export function GridSection() {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border transition-all duration-300 ${isActive
-                                        ? `bg-gradient-to-r ${layerColors[index]} text-white border-transparent shadow-lg`
-                                        : 'bg-white/4 border-white/8 text-white/50 hover:text-white hover:bg-white/8'
+                                    ? `bg-gradient-to-r ${layerColors[index]} text-white border-transparent shadow-lg`
+                                    : 'bg-white/4 border-white/8 text-white/50 hover:text-white hover:bg-white/8'
                                     }`}
                             >
                                 <Icon className="w-4 h-4" />
@@ -76,7 +76,7 @@ export function GridSection() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
-                                className="relative rounded-3xl border border-white/8 bg-white/3 overflow-hidden p-8 md:p-12"
+                                className="relative rounded-3xl border border-white/8 bg-white/3 overflow-hidden card-pad-lg"
                                 style={{
                                     boxShadow: `0 0 80px ${layerGlows[index]}`,
                                 }}
@@ -87,32 +87,32 @@ export function GridSection() {
                                     style={{ background: `linear-gradient(135deg, ${layerGlows[index]}, transparent)` }}
                                 />
 
-                                <div className="relative grid md:grid-cols-2 gap-10 items-center">
+                                <div className="relative grid md:grid-cols-2 gap-16 items-center">
                                     {/* Left */}
                                     <div>
                                         <div
-                                            className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${layerColors[index]} mb-6 shadow-lg`}
+                                            className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${layerColors[index]} mb-8 shadow-lg`}
                                         >
-                                            <Icon className="w-7 h-7 text-white" />
+                                            <Icon className="w-8 h-8 text-white" />
                                         </div>
-                                        <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-3">
+                                        <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
                                             {layer.title}
                                         </h3>
-                                        <p className="text-base text-white/50 mb-2">{layer.description}</p>
-                                        <p className="text-sm text-white/35">{layer.subtitle}</p>
+                                        <p className="text-lg text-white/50 mb-3">{layer.description}</p>
+                                        <p className="text-base text-white/35">{layer.subtitle}</p>
                                     </div>
 
                                     {/* Right - Items grid */}
-                                    <div className="grid grid-cols-2 gap-3">
+                                    <div className="grid grid-cols-2 gap-4">
                                         {layer.items.map((item, i) => (
                                             <motion.div
                                                 key={item}
                                                 initial={{ opacity: 0, scale: 0.85 }}
                                                 animate={{ opacity: 1, scale: 1 }}
                                                 transition={{ delay: i * 0.05, duration: 0.3 }}
-                                                className="flex items-center gap-2.5 rounded-xl border border-white/7 bg-white/4 px-4 py-3"
+                                                className="flex items-center gap-3 rounded-xl border border-white/7 bg-white/4 px-5 py-4"
                                             >
-                                                <ChevronRight className="w-3.5 h-3.5 text-violet-400 shrink-0" />
+                                                <ChevronRight className="w-4 h-4 text-violet-400 shrink-0" />
                                                 <span className="text-sm font-medium text-white/70">{item}</span>
                                             </motion.div>
                                         ))}
@@ -130,8 +130,8 @@ export function GridSection() {
                             <button
                                 onClick={() => setActiveLayer(index)}
                                 className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${activeLayer === index
-                                        ? 'text-white'
-                                        : 'text-white/30 hover:text-white/60'
+                                    ? 'text-white'
+                                    : 'text-white/30 hover:text-white/60'
                                     }`}
                             >
                                 {layer.title}

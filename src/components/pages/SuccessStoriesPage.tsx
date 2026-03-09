@@ -29,17 +29,17 @@ function StoryCard({ story, index }: { story: SuccessStory; index: number }) {
             {/* Top accent */}
             <div className={`h-1 w-full bg-gradient-to-r ${accent}`} />
 
-            <div className="p-8">
+            <div className="card-pad">
                 {/* Category + stat */}
                 <div className="flex items-start justify-between mb-5">
                     <Badge variant={categoryColors[story.category] as 'violet' | 'cyan' | 'gold' ?? 'default'}>
                         {story.category}
                     </Badge>
                     <div className="text-right">
-                        <div className={`font-display text-2xl font-bold bg-gradient-to-r ${accent} bg-clip-text text-transparent`}>
+                        <div className={`font-display text-3xl font-bold bg-gradient-to-r ${accent} bg-clip-text text-transparent`}>
                             {story.stat.value}
                         </div>
-                        <div className="text-xs text-white/35">{story.stat.label}</div>
+                        <div className="text-sm text-white/35">{story.stat.label}</div>
                     </div>
                 </div>
 
@@ -109,8 +109,8 @@ export function SuccessStoriesPage() {
             </section>
 
             {/* Overall Stats */}
-            <Section className="pb-6 bg-[#030305]">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            <Section className="pb-10 bg-[#030305]">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-cards">
                     {[
                         { value: '50%', label: 'Loans via Digital' },
                         { value: '85%', label: 'Faster Onboarding' },
@@ -120,10 +120,9 @@ export function SuccessStoriesPage() {
                         <motion.div
                             key={stat.label}
                             initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="rounded-2xl border border-white/7 bg-white/3 p-6 text-center"
+                            className="rounded-2xl border border-white/7 bg-white/3 card-pad-sm text-center"
                         >
                             <div className="font-display text-3xl font-bold gradient-text mb-1">{stat.value}</div>
                             <div className="text-xs text-white/35 font-medium uppercase tracking-wide">{stat.label}</div>
@@ -144,7 +143,7 @@ export function SuccessStoriesPage() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-80px' }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-cards"
                 >
                     {successStories.map((story, index) => (
                         <StoryCard key={story.id} story={story} index={index} />
