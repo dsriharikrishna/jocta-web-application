@@ -94,40 +94,40 @@
   --font-space-grotesk: 'Space Grotesk', sans-serif;
 
   /* Theme: Light */
-  --bg-color: #ffffff;
-  --bg-rgb: 255, 255, 255;
-  --surface-color: #f8fafc;
-  --surface-2-color: #f1f5f9;
-  --border-color: rgba(0, 0, 0, 0.08);
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
-  --accent-color: #7c6dfa;
-  --accent-rgb: 124, 109, 250;
-  --accent-2-color: #06b6d4;
-  --gold-color: #f49c2a;
-  --gradient-primary: linear-gradient(135deg, #7c6dfa 0%, #06b6d4 100%);
-  --gradient-gold: linear-gradient(135deg, #f49c2a 0%, #ef4444 100%);
-  --orb-opacity: 0.15;
-  --grid-opacity: 0.04;
+  --bg-color: #EBEBEB;
+  --bg-rgb: 235, 235, 235;
+  --surface-color: #F5F5F5;
+  --surface-2-color: #FFFFFF;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --text-primary: #000000;
+  --text-secondary: #323232;
+  --text-muted: #444444;
+  --accent-color: #323232;
+  --accent-rgb: 50, 50, 50;
+  --accent-2-color: #464646;
+  --gold-color: #323232;
+  --gradient-primary: linear-gradient(135deg, #323232 0%, #464646 100%);
+  --gradient-gold: linear-gradient(135deg, #000000 0%, #323232 100%);
+  --orb-opacity: 0.1;
+  --grid-opacity: 0.05;
 }
 
 [data-theme='dark'] {
   /* Theme: Dark */
-  --bg-color: #030305;
-  --bg-rgb: 3, 3, 5;
-  --surface-color: #0a0a0f;
-  --surface-2-color: #10101a;
-  --border-color: rgba(255, 255, 255, 0.07);
-  --text-primary: #e8e8f0;
-  --text-secondary: #94a3b8;
-  --text-muted: #4b5563;
-  --accent-color: #7c6dfa;
-  --accent-rgb: 124, 109, 250;
-  --accent-2-color: #06b6d4;
-  --gold-color: #f49c2a;
-  --orb-opacity: 0.25;
-  --grid-opacity: 0.03;
+  --bg-color: #000000;
+  --bg-rgb: 0, 0, 0;
+  --surface-color: #111111;
+  --surface-2-color: #1a1a1a;
+  --border-color: rgba(235, 235, 235, 0.1);
+  --text-primary: #EBEBEB;
+  --text-secondary: #444444;
+  --text-muted: #464646;
+  --accent-color: #323232;
+  --accent-rgb: 50, 50, 50;
+  --accent-2-color: #EBEBEB;
+  --gold-color: #EBEBEB;
+  --orb-opacity: 0.2;
+  --grid-opacity: 0.05;
 }
 
 * {
