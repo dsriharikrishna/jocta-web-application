@@ -18,6 +18,17 @@ export function HeroSection() {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
+        // Function to get current theme colors
+        const getThemeColors = () => {
+            const styles = getComputedStyle(document.documentElement);
+            const accent = styles.getPropertyValue('--accent-rgb').trim() || '124, 109, 250';
+            return {
+                accent: `rgba(${accent},`,
+                accent2: 'rgba(6,182,212,',
+                gold: 'rgba(244,156,42,',
+            };
+        };
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
@@ -31,17 +42,18 @@ export function HeroSection() {
             color: string;
         }[] = [];
 
-        const colors = ['rgba(124,109,250,', 'rgba(6,182,212,', 'rgba(244,156,42,'];
+        const themeColors = getThemeColors();
+        const colorOptions = [themeColors.accent, themeColors.accent2, themeColors.gold];
 
-        for (let i = 0; i < 60; i++) {
+        for (let i = 0; i < 70; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.4,
-                vy: (Math.random() - 0.5) * 0.4,
-                r: Math.random() * 1.5 + 0.3,
-                alpha: Math.random() * 0.4 + 0.1,
-                color: colors[Math.floor(Math.random() * colors.length)],
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3,
+                r: Math.random() * 2 + 0.5,
+                alpha: Math.random() * 0.3 + 0.1,
+                color: colorOptions[Math.floor(Math.random() * colorOptions.length)],
             });
         }
 
@@ -68,12 +80,13 @@ export function HeroSection() {
                     const dx = p1.x - p2.x;
                     const dy = p1.y - p2.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 120) {
+                    if (dist < 150) {
                         ctx.beginPath();
                         ctx.moveTo(p1.x, p1.y);
                         ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(124,109,250,${0.06 * (1 - dist / 120)})`;
-                        ctx.lineWidth = 0.5;
+                        const currentAccent = getThemeColors().accent;
+                        ctx.strokeStyle = `${currentAccent}${0.08 * (1 - dist / 150)})`;
+                        ctx.lineWidth = 0.6;
                         ctx.stroke();
                     }
                 });
@@ -97,7 +110,7 @@ export function HeroSection() {
     }, []);
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#030305]">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
             {/* Particle canvas */}
             <canvas
                 ref={canvasRef}
@@ -109,97 +122,84 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-grid opacity-60" aria-hidden />
 
             {/* Gradient orbs */}
-            <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-violet-600/10 blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-cyan-600/8 blur-[120px] pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-violet-900/15 blur-[150px] pointer-events-none" />
+            <div className="absolute top-1/4 left-1/4 w-[700px] h-[700px] rounded-full bg-accent/10 blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-accent-2/8 blur-[120px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-accent/5 blur-[150px] pointer-events-none" />
 
             {/* Content */}
-            <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center pt-28 pb-24 md:pt-36">
+            <div className="relative z-10 max-w-6xl mx-auto container-section text-center pt-32 pb-24 md:pt-40">
                 {/* Eyebrow badge */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-violet-500/25 bg-violet-500/8 backdrop-blur-sm"
+                    className="inline-flex items-center gap-2 px-4 py-2 mb-10 rounded-full border border-accent/25 bg-accent/10 backdrop-blur-md shadow-xl shadow-accent/5"
                 >
-                    <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
-                    <span className="text-xs font-medium text-violet-300 tracking-wider uppercase">
+                    <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
+                    <span className="text-sm font-bold text-accent tracking-[0.2em] uppercase">
                         AI-Powered Fintech Platform
                     </span>
                 </motion.div>
 
                 {/* Main headline */}
-                <div className="overflow-hidden mb-4">
-                    <motion.h1
-                        initial={{ y: '100%', opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.9, delay: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
-                        className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight"
+                <div className="mb-8">
+                    <h1
+                        className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-4"
                     >
-                        <span className="text-white">{hero.headline}</span>
-                        <br />
-                        <span className="shimmer-text">{hero.accent}</span>
-                    </motion.h1>
+                        <span className="text-text-primary block">{hero.headline}</span>
+                        <span className="shimmer-text block mt-4">{hero.accent}</span>
+                    </h1>
                 </div>
 
                 {/* Subheadline */}
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.4 }}
-                    className="mt-7 text-base md:text-xl text-white/45 max-w-2xl mx-auto leading-relaxed"
+                <p
+                    className="mt-8 text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed font-medium"
                 >
                     {hero.subheadline}
-                </motion.p>
+                </p>
 
                 {/* CTAs */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.55 }}
-                    className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+                <div
+                    className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6"
                 >
                     <Link href="/contact">
-                        <Button size="lg" className="gap-2">
+                        <Button size="lg" className="h-16 px-10 rounded-2xl text-xl shadow-2xl shadow-accent/20">
                             {hero.cta}
-                            <ArrowRight className="w-4 h-4" />
+                            <ArrowRight className="ml-2 w-6 h-6" />
                         </Button>
                     </Link>
                     <Link href="/platform">
-                        <Button variant="ghost" size="lg" className="gap-2">
-                            <Play className="w-4 h-4" />
+                        <Button variant="ghost" size="lg" className="h-16 px-10 rounded-2xl text-xl border-border-color bg-surface-color/50 backdrop-blur-sm">
+                            <Play className="mr-2 w-6 h-6" />
                             Explore Platform
                         </Button>
                     </Link>
-                </motion.div>
+                </div>
 
                 {/* Stats strip */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.75 }}
-                    className="mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-14"
+                <div
+                    className="mt-20 pt-16 border-t border-border-color flex flex-wrap items-center justify-center gap-12 md:gap-20"
                 >
                     {siteData.home.stats.map((stat) => (
-                        <div key={stat.label} className="text-center">
-                            <div className="font-display text-2xl md:text-3xl font-bold gradient-text">
+                        <div key={stat.label} className="text-center group">
+                            <div className="font-display text-3xl md:text-5xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform duration-300">
                                 {stat.value}
                             </div>
-                            <div className="text-xs text-white/30 mt-1 tracking-wide">{stat.label}</div>
+                            <div className="text-sm font-bold text-text-muted uppercase tracking-widest">{stat.label}</div>
                         </div>
                     ))}
-                </motion.div>
+                </div>
             </div>
 
             {/* Scroll indicator */}
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5, duration: 1, repeat: Infinity, repeatType: 'reverse' }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 hidden lg:flex"
             >
-                <span className="text-xs text-white/20 tracking-widest uppercase">Scroll</span>
-                <div className="w-px h-12 bg-gradient-to-b from-white/20 to-transparent" />
+                <span className="text-xs font-bold text-text-muted tracking-[0.3em] uppercase">Scroll</span>
+                <div className="w-1 h-16 rounded-full bg-gradient-to-b from-accent to-transparent" />
             </motion.div>
         </section>
     );

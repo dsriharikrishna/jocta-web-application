@@ -18,9 +18,9 @@ export function ClientsSection() {
     const { clients, testimonial } = siteData.home;
 
     return (
-        <Section id="clients" className="section-py bg-[#030305]">
+        <Section id="clients" className="section-py bg-background">
             {/* Subtle divider */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border-color to-transparent" />
 
             <SectionHeader
                 eyebrow="Our Clients"
@@ -42,17 +42,17 @@ export function ClientsSection() {
                     hidden: {},
                     visible: { transition: { staggerChildren: 0.08 } },
                 }}
-                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20"
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-24 max-w-6xl mx-auto"
             >
                 {clientLogos.map((name) => (
                     <motion.div
                         key={name}
                         variants={{
-                            hidden: { opacity: 0, y: 20 },
-                            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                            hidden: { opacity: 0, y: 30 },
+                            visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "circOut" } },
                         }}
-                        whileHover={{ scale: 1.04, borderColor: 'rgba(124,109,250,0.3)' }}
-                        className="flex items-center justify-center rounded-2xl border border-white/7 bg-white/3 card-pad-sm text-center text-sm font-semibold text-white/40 cursor-default transition-all duration-300 hover:text-white/70 hover:bg-white/6"
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        className="flex items-center justify-center rounded-[2rem] border border-border-color bg-surface-color p-8 text-center text-sm font-bold text-text-muted uppercase tracking-widest cursor-default transition-all duration-300 hover:text-text-primary hover:border-accent/30 hover:bg-surface-2-color shadow-sm hover:shadow-xl hover:shadow-accent/5"
                     >
                         {name}
                     </motion.div>
@@ -61,29 +61,31 @@ export function ClientsSection() {
 
             {/* Testimonial */}
             <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="relative rounded-3xl border border-white/8 bg-gradient-to-br from-white/4 to-white/2 overflow-hidden card-pad-lg"
+                transition={{ duration: 0.8 }}
+                className="relative rounded-[3rem] border border-border-color bg-gradient-to-br from-surface-color to-surface-2-color overflow-hidden card-pad-lg shadow-2xl shadow-accent/5 max-w-5xl mx-auto"
             >
                 {/* Glow */}
-                <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-violet-600/10 blur-3xl pointer-events-none" />
+                <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-accent/10 blur-[120px] pointer-events-none" />
 
-                <div className="relative text-center max-w-3xl mx-auto">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-violet-500/15 border border-violet-500/25 mb-8">
-                        <Quote className="w-6 h-6 text-violet-400" />
+                <div className="relative text-center max-w-4xl mx-auto">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent/10 border border-accent/20 mb-10 shadow-lg">
+                        <Quote className="w-8 h-8 text-accent" />
                     </div>
 
-                    <blockquote className="text-xl md:text-3xl font-medium text-white/80 leading-relaxed mb-10 italic">
+                    <blockquote className="text-2xl md:text-4xl font-bold text-text-primary leading-relaxed mb-12 italic tracking-tight">
                         &ldquo;{testimonial.quote}&rdquo;
                     </blockquote>
 
-                    <div className="flex items-center justify-center gap-5">
-                        <div className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-violet-500 to-cyan-500 text-sm font-bold text-white shadow-xl">
+                    <div className="flex items-center justify-center gap-6">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent-2 text-lg font-bold text-white shadow-xl">
                             MM
                         </div>
                         <div className="text-left">
-                            <div className="text-sm font-semibold text-white">{testimonial.author}</div>
-                            <div className="text-xs text-white/40">{testimonial.role}</div>
+                            <div className="text-lg font-bold text-text-primary">{testimonial.author}</div>
+                            <div className="text-sm font-bold text-accent uppercase tracking-widest">{testimonial.role}</div>
                         </div>
                     </div>
                 </div>

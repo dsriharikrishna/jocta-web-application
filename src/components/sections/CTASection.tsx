@@ -21,43 +21,43 @@ export function CTASection({
     secondaryCta = { label: 'Learn More', href: '/about' },
 }: CTASectionProps) {
     return (
-        <Section className="section-py bg-[#030305]">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+        <Section className="section-py bg-background">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border-color to-transparent" />
 
             <motion.div
-                initial={{ opacity: 0, scale: 0.97 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-violet-600/20 via-[#0a0a14] to-cyan-600/20 border border-white/8 card-pad-lg text-center"
+                transition={{ duration: 0.8 }}
+                className="relative rounded-[3rem] overflow-hidden bg-gradient-to-br from-accent/10 via-surface-color/50 to-accent-2/10 border border-border-color card-pad-lg text-center shadow-2xl shadow-accent/5 max-w-6xl mx-auto"
             >
                 {/* Orbs */}
-                <div className="absolute top-0 left-1/4 w-72 h-72 rounded-full bg-violet-600/15 blur-3xl pointer-events-none" />
-                <div className="absolute bottom-0 right-1/4 w-72 h-72 rounded-full bg-cyan-600/15 blur-3xl pointer-events-none" />
+                <div className="absolute top-[-50%] left-[-20%] w-[80%] h-[150%] rounded-full bg-accent/10 blur-[120px] pointer-events-none" />
+                <div className="absolute bottom-[-50%] right-[-20%] w-[80%] h-[150%] rounded-full bg-accent-2/10 blur-[120px] pointer-events-none" />
 
                 {/* Grid inside */}
                 <div className="absolute inset-0 bg-grid opacity-30" />
 
-                <div className="relative">
+                <div className="relative z-10">
                     <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 mb-7 rounded-full border border-violet-500/25 bg-violet-500/8"
+                        transition={{ duration: 0.6 }}
+                        className="inline-flex items-center gap-2.5 px-5 py-2.5 mb-10 rounded-full border border-accent/25 bg-accent/10 backdrop-blur-md shadow-xl shadow-accent/5"
                     >
-                        <span className="w-2 h-2 rounded-full bg-violet-400" />
-                        <span className="text-xs font-medium text-violet-300 tracking-wider uppercase">
-                            {siteData.home.careers.title}
+                        <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
+                        <span className="text-sm font-bold text-accent tracking-[0.2em] uppercase">
+                            Join Our Journey
                         </span>
                     </motion.div>
 
                     <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white max-w-3xl mx-auto leading-tight"
+                        transition={{ duration: 0.7, delay: 0.1 }}
+                        className="font-display text-4xl md:text-5xl lg:text-7xl font-bold text-text-primary max-w-4xl mx-auto leading-[0.95] tracking-tight mb-8"
                     >
                         {title}
                     </motion.h2>
@@ -66,8 +66,8 @@ export function CTASection({
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="mt-5 text-lg text-white/50"
+                        transition={{ duration: 0.7, delay: 0.2 }}
+                        className="mt-8 text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto leading-relaxed font-medium"
                     >
                         {subtitle}
                     </motion.p>
@@ -76,17 +76,17 @@ export function CTASection({
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="mt-12 flex flex-wrap items-center justify-center gap-6"
+                        transition={{ duration: 0.7, delay: 0.3 }}
+                        className="mt-14 flex flex-wrap items-center justify-center gap-6"
                     >
                         <Link href={primaryCta.href}>
-                            <Button size="lg" className="gap-2">
+                            <Button size="lg" className="h-16 px-10 rounded-2xl text-xl shadow-2xl shadow-accent/20">
                                 {primaryCta.label}
-                                <ArrowRight className="w-4 h-4" />
+                                <ArrowRight className="ml-2 w-6 h-6" />
                             </Button>
                         </Link>
                         <Link href={secondaryCta.href}>
-                            <Button variant="ghost" size="lg">
+                            <Button variant="ghost" size="lg" className="h-16 px-10 rounded-2xl text-xl border-border-color bg-surface-color/50 backdrop-blur-sm">
                                 {secondaryCta.label}
                             </Button>
                         </Link>

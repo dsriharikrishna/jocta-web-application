@@ -89,22 +89,51 @@
 
 
 :root {
-  --color-bg: #030305;
-  --color-surface: #0a0a0f;
-  --color-surface-2: #10101a;
-  --color-border: rgba(255, 255, 255, 0.07);
-  --color-text: #e8e8f0;
-  --color-muted: #6b7280;
-  --color-accent: #7c6dfa;
-  --color-accent-2: #06b6d4;
-  --color-gold: #f49c2a;
+  /* Common */
+  --font-inter: 'Inter', sans-serif;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+
+  /* Theme: Light */
+  --bg-color: #ffffff;
+  --bg-rgb: 255, 255, 255;
+  --surface-color: #f8fafc;
+  --surface-2-color: #f1f5f9;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --accent-color: #7c6dfa;
+  --accent-rgb: 124, 109, 250;
+  --accent-2-color: #06b6d4;
+  --gold-color: #f49c2a;
   --gradient-primary: linear-gradient(135deg, #7c6dfa 0%, #06b6d4 100%);
   --gradient-gold: linear-gradient(135deg, #f49c2a 0%, #ef4444 100%);
+  --orb-opacity: 0.15;
+  --grid-opacity: 0.04;
+}
+
+[data-theme='dark'] {
+  /* Theme: Dark */
+  --bg-color: #030305;
+  --bg-rgb: 3, 3, 5;
+  --surface-color: #0a0a0f;
+  --surface-2-color: #10101a;
+  --border-color: rgba(255, 255, 255, 0.07);
+  --text-primary: #e8e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #4b5563;
+  --accent-color: #7c6dfa;
+  --accent-rgb: 124, 109, 250;
+  --accent-2-color: #06b6d4;
+  --gold-color: #f49c2a;
+  --orb-opacity: 0.25;
+  --grid-opacity: 0.03;
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -114,9 +143,10 @@ html {
 }
 
 body {
-  font-family: var(--font-inter), system-ui, sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-inter);
+  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
 }
 
@@ -126,18 +156,18 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg);
+  background: var(--bg-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #7c6dfa, #06b6d4);
+  background: var(--accent-color);
   border-radius: 10px;
 }
 
 /* ---- Selection ---- */
 ::selection {
-  background: rgba(124, 109, 250, 0.35);
-  color: #fff;
+  background: rgba(124, 109, 250, 0.25);
+  color: var(--text-primary);
 }
 
 /* ---- Utility ---- */

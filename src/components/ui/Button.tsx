@@ -44,15 +44,13 @@ export function Button({
     };
 
     return (
-        <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+        <button
             type={type}
             disabled={disabled}
             onClick={onClick}
             className={cn(baseStyles, sizeStyles[size], variantStyles[variant], className)}
         >
             {children}
-        </motion.button>
+        </button>
     );
 }

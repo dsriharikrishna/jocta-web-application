@@ -49,15 +49,24 @@ export const metadata: Metadata = {
     robots: { index: true, follow: true },
 };
 
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
+
 export default function RootLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`}>
+        <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`} suppressHydrationWarning>
             <body className={`${inter.className} antialiased`}>
-                <PageLayout>{children}</PageLayout>
+                <ThemeProvider
+                    attribute="data-theme"
+                    defaultTheme="dark"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <PageLayout>{children}</PageLayout>
+                </ThemeProvider>
             </body>
         </html>
     );
